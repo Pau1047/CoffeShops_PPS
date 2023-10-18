@@ -97,6 +97,7 @@ fun MyCard(InfoCoffe: InfoCoffe) {
                 modifier = Modifier.fillMaxSize(),
                 contentScale = ContentScale.Crop
             )
+
             Text(text = InfoCoffe.titles,
                 textAlign = TextAlign.Center,
                 fontFamily = FontFamily.SansSerif,
@@ -104,7 +105,7 @@ fun MyCard(InfoCoffe: InfoCoffe) {
                 fontSize = 40.sp
             )
 
-            RatingBar(modifier = Modifier.padding(start = 10.dp),
+            RatingBar(modifier = Modifier.padding(start = 20.dp),
                 rating = rating,
                 onRatingChanged = { newRating ->
                     rating = newRating
@@ -166,8 +167,14 @@ fun MyTopAppBar() {
                 )
             }
             DropdownMenu(expanded = extended, onDismissRequest = { extended = !extended}) {
-                DropdownMenuItem(text = { "Compartir" }, onClick = { /*TODO*/ }, leadingIcon = {Icons.Filled.Share})
-                DropdownMenuItem(text = { "Albun" }, onClick = { /*TODO*/ }, leadingIcon = {Icons.Filled.Lock})
+                DropdownMenuItem(text = { Text(text = "Compartir") }, onClick = { /*TODO*/ }, leadingIcon = { Icon(
+                    imageVector = Icons.Filled.Share,
+                    contentDescription = "Back"
+                )})
+                DropdownMenuItem(text = { Text(text = "Album") }, onClick = { /*TODO*/ }, leadingIcon = { Icon(
+                    imageVector = Icons.Filled.Lock,
+                    contentDescription = "Back"
+                )})
 
             }
 
