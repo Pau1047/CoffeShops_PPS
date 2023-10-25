@@ -55,6 +55,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
 import java.lang.Math.ceil
 import java.lang.Math.floor
 
@@ -62,7 +63,7 @@ import java.lang.Math.floor
 @OptIn(ExperimentalMaterial3Api::class)
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
-fun CoffeShops () {
+fun CoffeShops (navController: NavHostController) {
 
     Scaffold(topBar = { MyTopAppBar() }) {
         Box(
@@ -80,20 +81,17 @@ fun CoffeShops () {
     }
 }
 
-
-
 @Composable
 fun MyCard(InfoCoffe: InfoCoffe, navController: NavHostController) {
     var rating by remember { mutableStateOf(0) }
     Card(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(16.dp),
+            .padding(16.dp)
+            .clickable { navController.navigate() },
 
         shape = MaterialTheme.shapes.medium
-        onClick = {
 
-        }
     ) {
         Column() {
 
