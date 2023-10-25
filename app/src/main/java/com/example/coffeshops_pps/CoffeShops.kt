@@ -73,8 +73,8 @@ fun CoffeShops (navController: NavHostController) {
         ) {
 
             LazyColumn {
-                items(getInfoCoffes()) { InfoCoffe ->
-                    MyCard(InfoCoffe)
+                items(getInfoCoffes()) { info ->
+                    MyCard(infoCoffe = info, navController = navController)
                 }
             }
         }
@@ -82,25 +82,25 @@ fun CoffeShops (navController: NavHostController) {
 }
 
 @Composable
-fun MyCard(InfoCoffe: InfoCoffe, navController: NavHostController) {
+fun MyCard(infoCoffe: InfoCoffe, navController: NavHostController) {
     var rating by remember { mutableStateOf(0) }
     Card(
         modifier = Modifier
             .fillMaxWidth()
             .padding(16.dp)
-            .clickable { navController.navigate() },
+            .clickable { navController.navigate("Opiniones/${infoCoffe.titles}") },
 
         shape = MaterialTheme.shapes.medium
 
     ) {
         Column() {
 
-            Image(painter = painterResource(id = InfoCoffe.images), contentDescription = "Imatge",
+            Image(painter = painterResource(id = infoCoffe.images), contentDescription = "Imatge",
                 modifier = Modifier.fillMaxSize(),
                 contentScale = ContentScale.Crop
             )
 
-            Text(text = InfoCoffe.titles,
+            Text(text = infoCoffe.titles,
                 textAlign = TextAlign.Center,
                 fontFamily = FontFamily.SansSerif,
                 fontWeight = FontWeight.Bold,
@@ -113,7 +113,7 @@ fun MyCard(InfoCoffe: InfoCoffe, navController: NavHostController) {
                     rating = newRating
                 })
 
-            Text(text = InfoCoffe.directions)
+            Text(text = infoCoffe.directions)
 
             Divider()
 
