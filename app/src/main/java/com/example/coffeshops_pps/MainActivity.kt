@@ -28,7 +28,7 @@ class MainActivity : ComponentActivity() {
                 {
                     val navController = rememberNavController()
                     NavHost(navController = navController, startDestination = "CoffeShops") {
-                        composable("Coffe") { CoffeShops(navController) }
+                        composable("CoffeShops") { CoffeShops(navController) }
                         composable(
                             route = "Opiniones/{nameCoffe}",
                             arguments = listOf(navArgument("nameCoffe") {
