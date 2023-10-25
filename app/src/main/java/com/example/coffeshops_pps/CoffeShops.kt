@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.displayCutoutPadding
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -82,7 +83,7 @@ fun CoffeShops () {
 
 
 @Composable
-fun MyCard(InfoCoffe: InfoCoffe) {
+fun MyCard(InfoCoffe: InfoCoffe, navController: NavHostController) {
     var rating by remember { mutableStateOf(0) }
     Card(
         modifier = Modifier
@@ -90,6 +91,9 @@ fun MyCard(InfoCoffe: InfoCoffe) {
             .padding(16.dp),
 
         shape = MaterialTheme.shapes.medium
+        onClick = {
+
+        }
     ) {
         Column() {
 
